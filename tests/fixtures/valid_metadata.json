@@ -1,0 +1,35 @@
+{
+  "created_at": "2025-10-09T12:00:00Z",
+  "audio_duration_ms": 60000,
+  "transcript_duration_ms": 60000,
+  "proceeding_type": "Hearing",
+  "parties": ["Moonlight Plaza Association", "Cannon Farms"],
+  "speakers": [
+    {
+      "post_asr_label": "Speaker A",
+      "role": "PLAINTIFF_ATTORNEY",
+      "honorific_prefix": "Mr.",
+      "first_name": "Jerry",
+      "last_name": "Sellingman",
+      "full_name": "Jerry Sellingman",
+      "real_time_asr_label": "MS SELIGMAN"
+    },
+    {
+      "post_asr_label": "Speaker B",
+      "role": "WITNESS",
+      "honorific_prefix": "Ms.",
+      "first_name": "Chris",
+      "last_name": "Jacob",
+      "full_name": "Chris Jacob",
+      "real_time_asr_label": "THE WITNESS"
+    },
+    {
+      "post_asr_label": "Speaker C",
+      "role": "REPORTER",
+      "first_name": "Wes",
+      "last_name": "Harold",
+      "full_name": "Wes Harold",
+      "real_time_asr_label": "THE REPORTER"
+    }
+  ]
+}

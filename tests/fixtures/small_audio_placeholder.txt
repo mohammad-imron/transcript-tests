@@ -1,0 +1,6 @@
+This file is a placeholder describing a small synthetic audio fixture.
+Create a mono 16-bit WAV, 16 kHz, duration ~5 seconds with simple spoken phrases:
+"Good morning. My name is Wes Harold."
+"Counsel may begin."
+Use a TTS tool or generate a short recording and save as tests/fixtures/small_audio.wav.
+(Do not commit large binaries to the repo; store large audio in an artifact store or use a small synthetic file.)

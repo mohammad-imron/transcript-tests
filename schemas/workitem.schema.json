@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Workitem",
+  "type": "object",
+  "required": ["id", "state"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "state": {
+      "type": "string",
+      "enum": ["NEW", "ASSIGNED", "TRANSCRIBED", "REVIEWED", "COMPLETED"]
+    },
+    "assignee": { "type": ["string", "null"] },
+    "audit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "actor": { "type": "string" },
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "reason": { "type": ["string", "null"] },
+          "type": { "type": "string" }
+        },
+        "required": ["timestamp", "actor", "from", "to"]
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "created_at": { "type": "string", "format": "date-time" }
+        },
+        "required": ["id", "type"]
+      }
+    },
+    "version": { "type": "integer", "minimum": 0 }
+  },
+  "additionalProperties": true
+}

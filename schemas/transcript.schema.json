@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Transcript Object",
+  "type": "object",
+  "required": ["text", "speakers", "timestamps"],
+  "properties": {
+    "text": { "type": "string" },
+    "normalized_text": { "type": "string" },
+    "speakers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string" },
+          "name": { "type": "string" },
+          "role": { "type": "string" }
+        },
+        "required": ["label"]
+      }
+    },
+    "timestamps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "start_ms": { "type": "integer", "minimum": 0 },
+          "end_ms": { "type": "integer", "minimum": 0 },
+          "speaker_label": { "type": "string" },
+          "text": { "type": "string" }
+        },
+        "required": ["start_ms", "end_ms", "speaker_label", "text"]
+      }
+    },
+    "alignment_quality": { "type": "number", "minimum": 0, "maximum": 1 },
+    "exhibits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "page": { "type": "integer" },
+          "description": { "type": "string" }
+        },
+        "required": ["id"]
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Transcript Metadata",
+  "type": "object",
+  "required": ["created_at", "proceeding_type", "speakers"],
+  "properties": {
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp (Zulu)."
+    },
+    "audio_duration_ms": { "type": "integer", "minimum": 0 },
+    "transcript_duration_ms": { "type": "integer", "minimum": 0 },
+    "proceeding_type": {
+      "type": "string",
+      "enum": ["Hearing", "Deposition", "Trial", "Other"]
+    },
+    "parties": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "speakers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["post_asr_label", "role"],
+        "properties": {
+          "post_asr_label": { "type": "string" },
+          "role": {
+            "type": "string",
+            "enum": ["WITNESS", "PLAINTIFF_ATTORNEY", "DEFENSE_ATTORNEY", "REPORTER", "OTHER"]
+          },
+          "honorific_prefix": { "type": ["string", "null"] },
+          "first_name": { "type": "string" },
+          "last_name": { "type": "string" },
+          "full_name": { "type": "string" },
+          "real_time_asr_label": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "exhibits": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[A-Za-z0-9 _-]{1,64}$" }
+    },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": true
+}
